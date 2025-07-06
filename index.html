@@ -10,28 +10,30 @@
 
         .Header-inner{
             display: flex;
-            justify-content: space-between;
+            justify-content: ;
             align-items: Center;
             gap: 20px;
             padding: 0 200px;
-            vertical-align: top;
+            height: 377px;
+            background-image: url('banner.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
         }
 
-        .nav-links{
-            display: flex;
-            gap: 50px;
-            font-size: 20px;
-        }
-
-        .nav-links a {
-            color: black;
-            text-decoration: none;
-        }
 
 
         .op-text{
             font-family:'Times New Roman', Times, serif;
             font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .first-contain{
+            display: flex;
+            align-items: center;
+            gap: 300px;
         }
 
         .First-text{
@@ -40,19 +42,28 @@
             width: 50px;
         }
 
+        .bag-image{
+            width: 400px;
+            height: auto;
+            display: block;
+        }
+
     </style>
 </head>
 <body>
     <div class="Header">
         <div class="Header-inner">
-            <p class="op-text">LoopHandmadeBagTR</p>
-            <div class="nav-links">
-                <a href=" ">Home</a>
-                <a href=" ">About</a>
-            </div>
         </div>
-        <p class="First-text">Handmade Crochet Bags</p>
-
+        <div class="first-contain">
+            <p class="First-text">Handmade Crochet Bags</p>
+            <img src="bag.png" alt="Handmade Crochet Bag" class="bag-image">
+        </div>
+    </div>
+    <div class="About">
+        <p class="titlee">About</p>
+        <p class="description">Hello , welcome to LoopHandmadeBagTR. 
+I'm Müge.I knit all the bags in my store with great care, using the highest quality materials.I do it all, from knitting to lining.To produce something is my biggest passion.
+Thank you for supporting small businesses and my shop</p>
     </div>
     
 </body>
