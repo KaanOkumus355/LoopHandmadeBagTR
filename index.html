@@ -3,81 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <title>LoopHandmadeBagTr</title>
-    <style>
-        .Header{
-            background-color: antiquewhite;;
-        }
-
-        .Header-inner{
-            display: flex;
-            justify-content: center;
-            align-items: Center;
-            gap: 20px;
-            padding: 0 200px;
-            height: 400px;
-            background-image: url('banner.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-
-
-
-        .op-text{
-            font-family:'Times New Roman', Times, serif;
-            font-size: 40px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .first-contain{
-            display: flex;
-            align-items: center;
-            gap: 350px;
-        }
-
-        .First-text{
-            padding: 0 200px;
-            font-size: 90px;
-            width: 50px;
-        }
-
-        .bag-image{
-            width: 400px;
-            height: auto;
-            display: block;
-        }
-
-        .About {
-            background-color: #fffaf0;
-            padding: 60px 200px;
-            font-family: 'Times New Roman', Times, serif;
-            color: #333;
-        }
-
-        .about-title{
-            font-size: 50px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #b5651d;
-        }
-
-        .about-description {
-            font-size: 22px;
-            line-height: 1.8;
-            max-width: 900px;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="Header">
         <div class="Header-inner">
         </div>
         <div class="first-contain">
-            <p class="First-text">Handmade Crochet Bags</p>
-            <img src="bag.png" alt="Handmade Crochet Bag" class="bag-image">
         </div>
     </div>
     <div class="About">
@@ -88,6 +20,45 @@
         Thank you for supporting small businesses and my shop!
         </p>
     </div>
-    
+    <div class="filter-buttons">
+        <button onclick="filterBags('all')">All</button>
+        <button onclick="filterBags('raffia')">Raffia Bags</button>
+        <button onclick="filterBags('metallic')">Metallic Bags</button>
+    </div>
+    <div class="bag-gallery">
+        <div class="bag-card" data-category="raffia">
+        <div class="image-hover-wrapper">
+            <img src="photos/raffia1.jpg" alt="Raffia Bag" class="base-image">
+            <img src="photos/rafiabag1hover.jpg" alt="Raffia Bag Hover" class="hover-image">
+        </div>
+        <p>Raffia Bag 1</p>
+        </div>
+        <div class="bag-card" data-category="raffia">
+            <img src="photos/raffia2.jpg" alt="Raffia Bag" class="base-image">
+            <p>Raffia Bag 2</p>
+        </div>
+        <div class="bag-card" data-category="metallic">
+            <img src="photos/metallic1.avif" alt="Metallic Bag" class="base-image">
+            <p>Metallic Bag</p>
+        </div>
+    </div>
+
+    <script>
+        function filterBags(category) {
+            const cards = document.querySelectorAll('.bag-card');
+            cards.forEach(card => {
+             const cardCategory = card.getAttribute('data-category');
+            if (category === 'all' || cardCategory === category) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+            });
+            const buttons = document.querySelectorAll('.filter-buttons button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[onclick="filterBags('${category}')"]`).classList.add('active');
+        }
+</script>
+
 </body>
 </html>
