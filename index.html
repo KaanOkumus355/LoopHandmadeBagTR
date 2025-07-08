@@ -26,20 +26,33 @@
         <button onclick="filterBags('metallic')">Metallic Bags</button>
     </div>
     <div class="bag-gallery">
-        <div class="bag-card" data-category="raffia">
-        <div class="image-hover-wrapper">
-            <img src="photos/raffia1.jpg" alt="Raffia Bag" class="base-image">
-            <img src="photos/rafiabag1hover.jpg" alt="Raffia Bag Hover" class="hover-image">
+        <div class="bag-card" data-category="raffia" onclick="openModal('modal1')">
+            <div class="image-hover-wrapper">
+                <img src="photos/raffia1.jpg" alt="Raffia Bag" class="base-image">
+                <img src="photos/rafiabag1hover.jpg" alt="Raffia Bag Hover" class="hover-image">
+            </div>
+            <p>Raffia Bag 1</p>
         </div>
-        <p>Raffia Bag 1</p>
-        </div>
         <div class="bag-card" data-category="raffia">
-            <img src="photos/raffia2.jpg" alt="Raffia Bag" class="base-image">
+            <div class="image-hover-wrapper">
+                <img src="photos/raffia2.jpg" alt="Raffia Bag" class="base-image">
+                <img src="photos/rafiabag2-hover.webp" alt="Raffia Bag" class="hover-image">
+            </div>
             <p>Raffia Bag 2</p>
         </div>
         <div class="bag-card" data-category="metallic">
             <img src="photos/metallic1.avif" alt="Metallic Bag" class="base-image">
             <p>Metallic Bag</p>
+        </div>
+    </div>
+
+    <div class="product-modal" id="modal1">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            <img src="photos/raffia1.jpg" alt="Raffia Bag">
+            <p><strong>Raffia Bag 1</strong></p>
+            <p>Price: $45</p>
+            <p>Description: Beautiful handmade raffia bag, perfect for everyday use or as a gift. Fully hand-knitted with love and high-quality yarn.</p>
         </div>
     </div>
 
@@ -58,6 +71,22 @@
             buttons.forEach(btn => btn.classList.remove('active'));
             document.querySelector(`[onclick="filterBags('${category}')"]`).classList.add('active');
         }
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        document.addEventListener('click', function (e) {
+            document.querySelectorAll('.product-modal.active').forEach(modal => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
