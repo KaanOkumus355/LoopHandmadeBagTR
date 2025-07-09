@@ -229,7 +229,8 @@
             font-family: inherit;
             font-size: inherit;
             outline: none;
-            color: #DAA06D;
+            color: black;
+            font-weight: bold;
             padding: 0.6em 0;
             padding-left: 3em;
             padding-right: 3em;
@@ -244,6 +245,67 @@
         .buy-button:active {
             transform: translateX(0.1em) translateY(0.1em);
             box-shadow: 0 0 0 4px #EADDCA, 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+        }
+
+        .contacts {
+            padding: 0 200px;
+            padding-top: 3em;
+            padding-bottom: 3em;
+            background-color: #f7eedc;
+        }
+
+        .logo-img {
+            border-radius: 50%;
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .image-container .prev,
+        .image-container .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .image-container .prev {
+            left: 10px;
+        }
+
+        .image-container .next {
+            right: 10px;
+        }
+
+        .image-container .info {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 12px;
+            border-radius: 10px;
         }
 
 

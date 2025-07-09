@@ -38,10 +38,15 @@
         </div>
     </div>
 
-    <div class="product-modal" id="modal1">
+    <div class="product-modal" id="modal1" data-images='["photos/raffia1.jpg", "photos/raffia2.jpg", "photos/raffia3.webp"]' >
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-            <img src="photos/raffia1.jpg" alt="Raffia Bag">
+            <div class="image-container">
+                <button class="prev" id="prev" onclick="prevImage()">&#8592;</button>
+                <img src="photos/raffia1.jpg" alt="Raffia Bag" id="modal-image">
+                <button class="next" id="next" onclick="nextImage()">&#8594;</button>
+                <p class="info" id="info">1/5</p>
+            </div>
             <p><strong>Handmade Raffia Clutch Bag , Crochet Bag, Summer Clutch , Knitted Raffia Bag , Straw Pouch Bag, Unique Gift For Her</strong></p>
             <p>Description: Step into summer style with our exquisitely crafted Handmade Raffia Clutch Bag. This versatile beauty is a delightful blend of crochet and knitting, woven from high-quality raffia to create a stunning and durable accessory for your sunny adventures. The intricate design of this straw pouch bag exudes charm and uniqueness, making it a perfect choice for those seeking a one-of-a-kind piece.</p>
             <p>Price: $45</p>
@@ -55,6 +60,10 @@
         I'm <strong>Müge</strong>. I knit all the bags in my store with great care, using the highest quality materials. From knitting to lining, I handle every step myself. Creating beautiful and practical items by hand is my biggest passion.<br><br>
         Thank you for supporting small businesses and my shop!
         </p>
+    </div>
+
+    <div class="contacts">
+        <img src="photos/logo.jpg" alt="logo" class="logo-img">
     </div>
 
     <script>
@@ -73,8 +82,38 @@
             document.querySelector(`[onclick="filterBags('${category}')"]`).classList.add('active');
         }
 
+        let currentImageIndex = 0;
+        let currentImages = [];
+        let currentModalId = '';
+
+
         function openModal(id) {
-            document.getElementById(id).classList.add('active');
+            const modal = document.getElementById(id);
+            const images = JSON.parse(modal.getAttribute('data-images'));
+
+            currentImageIndex = 0;
+            currentImages = images;
+            currentModalId = id;
+
+            updateModalImage();
+            modal.classList.add('active');
+
+        }
+
+        function updateModalImage() {
+            const modal = document.getElementById(currentModalId);
+            const imgTag = modal.querySelector('#modal-image');
+            imgTag.src = currentImages[currentImageIndex];
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+            updateModalImage();
+        }
+
+        function prevImage () {
+             currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+            updateModalImage();
         }
 
         function closeModal(id) {
