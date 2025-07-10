@@ -247,20 +247,6 @@
             box-shadow: 0 0 0 4px #EADDCA, 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
         }
 
-        .contacts {
-            padding: 0 200px;
-            padding-top: 3em;
-            padding-bottom: 3em;
-            background-color: #f7eedc;
-        }
-
-        .logo-img {
-            border-radius: 50%;
-            width: 400px;
-            height: 300px;
-            object-fit: cover;
-        }
-
         .image-container {
             position: relative;
             display: flex;
@@ -306,6 +292,47 @@
             background: rgba(0,0,0,0.5);
             padding: 5px 12px;
             border-radius: 10px;
+        }
+
+        .contacts {
+            display: flex;
+            align-items: flex-start;
+            padding: 3em 200px;
+            background-color: #f7eedc;
+            gap: 175px;
+        }
+
+        .logo-img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-row {
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+        }
+
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .social-logo {
+            width: 35px;
+            height: 35px;
         }
 
 
