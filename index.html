@@ -17,42 +17,9 @@
         <button onclick="filterBags('raffia')">Raffia Bags</button>
         <button onclick="filterBags('metallic')">Metallic Bags</button>
     </div>
-    <div class="bag-gallery">
-        <div class="bag-card" data-category="raffia" onclick="openModal('modal1')">
-            <div class="image-hover-wrapper">
-                <img src="photos/raffia1.jpg" alt="Raffia Bag" class="base-image">
-                <img src="photos/raffiabag1hover.jpg" alt="Raffia Bag Hover" class="hover-image">
-            </div>
-            <p>Raffia Bag 1</p>
-        </div>
-        <div class="bag-card" data-category="raffia">
-            <div class="image-hover-wrapper">
-                <img src="photos/raffia2.jpg" alt="Raffia Bag" class="base-image">
-                <img src="photos/raffiabag2-hover.webp" alt="Raffia Bag" class="hover-image">
-            </div>
-            <p>Raffia Bag 2</p>
-        </div>
-        <div class="bag-card" data-category="metallic">
-            <img src="photos/metallic1.avif" alt="Metallic Bag" class="base-image">
-            <p>Metallic Bag</p>
-        </div>
-    </div>
 
-    <div class="product-modal" id="modal1" data-images='["photos/raffia1.jpg", "photos/raffiabag1hover.jpg", "photos/raffiabag1-2.webp" , "photos/raffiabag1-3.webp", "photos/raffiabag1-4.webp"]' >
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-            <div class="image-container">
-                <button class="prev" id="prev" onclick="prevImage()">&#8592;</button>
-                <img src="photos/raffia1.jpg" alt="Raffia Bag" id="modal-image">
-                <button class="next" id="next" onclick="nextImage()">&#8594;</button>
-                <p class="info">1/5</p>
-            </div>
-            <p><strong>Handmade Raffia Clutch Bag , Crochet Bag, Summer Clutch , Knitted Raffia Bag , Straw Pouch Bag, Unique Gift For Her</strong></p>
-            <p>Description: Step into summer style with our exquisitely crafted Handmade Raffia Clutch Bag. This versatile beauty is a delightful blend of crochet and knitting, woven from high-quality raffia to create a stunning and durable accessory for your sunny adventures. The intricate design of this straw pouch bag exudes charm and uniqueness, making it a perfect choice for those seeking a one-of-a-kind piece.</p>
-            <p>Price: $45</p>
-            <a class="buy-button"  href="https://www.etsy.com/listing/1684439505">Purchase</a>
-        </div>
-    </div>
+    <div class="bag-gallery" id="bagGallery"></div>
+    <div id="modalsContainer"></div>
 
     <div class="About">
         <h2 class="about-title">About</h2>
@@ -145,6 +112,60 @@
                     modal.classList.remove('active');
                 }
             });
+        });
+
+        const products = [
+            {
+                id: "modal1",
+                name: "Raffia Bag 1",
+                category: "raffia",
+                coverImage: "photos/raffia/raffia1.jpg",
+                hoverImage: "photos/raffia/raffiabag1hover.jpg",
+                images: [
+                    "photos/raffia/raffia1.jpg",
+                    "photos/raffia/raffiabag1hover.jpg",
+                    "photos/raffia/raffiabag1-2.webp"
+                ],
+                description: "Step into summer style with our exquisitely crafted Handmade Raffia Clutch Bag...",
+                price: "45",
+                link: "https://www.etsy.com/listing/1684439505"
+            }
+        ]
+
+        const gallery = document.getElementById('bagGallery')
+        const modals = document.getElementById('modalsContainer')
+
+        products.forEach(product => {
+            const cardHTML = `
+                <div class="bag-card" data-category="${product.category}" onclick="openModal('${product.id}')">
+                    <div class="image-hover-wrapper">
+                        <img src="${product.coverImage}" alt="${product.name}" class="base-image">
+                        <img src="${product.hoverImage}" alt="${product.name}" class="hover-image">
+                    </div>
+                    <p>${product.name}</p>
+                </div>
+            `;
+            gallery.innerHTML += cardHTML;
+
+            const imagesArray = JSON.stringify(product.images).replace(/"/g, '&quot;');
+            const ModalHTML = `
+                    <div class="product-modal" id="${product.id}" data-images="${imagesArray}">
+                        <div class="modal-content">
+                            <span class="close-btn" onclick="closeModal('${product.id}')">&times;</span>
+                            <div class="image-container">
+                                <button class="prev" id="prev" onclick="prevImage()">&#8592;</button>
+                                <img src="${product.images[0]}" alt="${product.name}" id="modal-image">
+                                <button class="next" id="next" onclick="nextImage()">&#8594;</button>
+                                <p class="info">1/${product.images.length}</p>
+                            </div>
+                            <p><strong>${product.name}</strong></p>
+                            <p>Description: ${product.description}</p>
+                            <p>Price: $${product.price}</p>
+                            <a class="buy-button" target="_blank" href="${product.link}">Purchase</a>
+                        </div>
+                    </div>
+                `;
+                modals.innerHTML += ModalHTML;
         });
     </script>
 </body>
