@@ -1,3 +1,8 @@
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
         .Header{
             background-color: antiquewhite;
         }
@@ -337,6 +342,89 @@
             width: 35px;
             height: 35px;
         }
+
+        @media (max-width: 768px) {
+            .Header-inner {
+                padding: 0 20px;
+                height: 200px;
+                background-size: cover;
+            }
+
+            .first-contain {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .bag-gallery {
+                padding: 0 20px;
+                justify-content: center;
+            }
+
+            .bag-card {
+                width: 45%;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                padding: 0 20px;
+                align-items: stretch;
+            }
+
+            .About {
+                padding: 30px 20px;
+            }
+
+            .about-title {
+                font-size: 32px;
+            }
+
+            .about-description {
+                font-size: 16px;
+            }
+
+            .modal-content {
+                padding: 15px;
+                max-width: 95%;
+            }
+
+            .contacts {
+                flex-direction: column;
+                padding: 2em 20px;
+                gap: 40px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .contacts {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .logo-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .contact-row {
+                font-size: 16px;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 26px;
+                margin: 40px 0;
+            }
+
+            .filter-buttons button {
+                width: 100%;
+                max-width: 400px;
+                text-align: center;
+            }
+        }
+
 
 
 
