@@ -21,14 +21,14 @@
         <div class="bag-card" data-category="raffia" onclick="openModal('modal1')">
             <div class="image-hover-wrapper">
                 <img src="photos/raffia1.jpg" alt="Raffia Bag" class="base-image">
-                <img src="photos/rafiabag1hover.jpg" alt="Raffia Bag Hover" class="hover-image">
+                <img src="photos/raffiabag1hover.jpg" alt="Raffia Bag Hover" class="hover-image">
             </div>
             <p>Raffia Bag 1</p>
         </div>
         <div class="bag-card" data-category="raffia">
             <div class="image-hover-wrapper">
                 <img src="photos/raffia2.jpg" alt="Raffia Bag" class="base-image">
-                <img src="photos/rafiabag2-hover.webp" alt="Raffia Bag" class="hover-image">
+                <img src="photos/raffiabag2-hover.webp" alt="Raffia Bag" class="hover-image">
             </div>
             <p>Raffia Bag 2</p>
         </div>
@@ -38,14 +38,14 @@
         </div>
     </div>
 
-    <div class="product-modal" id="modal1" data-images='["photos/raffia1.jpg", "photos/raffia2.jpg", "photos/raffia3.webp"]' >
+    <div class="product-modal" id="modal1" data-images='["photos/raffia1.jpg", "photos/raffiabag1hover.jpg", "photos/raffiabag1-2.webp" , "photos/raffiabag1-3.webp", "photos/raffiabag1-4.webp"]' >
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
             <div class="image-container">
                 <button class="prev" id="prev" onclick="prevImage()">&#8592;</button>
                 <img src="photos/raffia1.jpg" alt="Raffia Bag" id="modal-image">
                 <button class="next" id="next" onclick="nextImage()">&#8594;</button>
-                <p class="info" id="info">1/5</p>
+                <p class="info">1/5</p>
             </div>
             <p><strong>Handmade Raffia Clutch Bag , Crochet Bag, Summer Clutch , Knitted Raffia Bag , Straw Pouch Bag, Unique Gift For Her</strong></p>
             <p>Description: Step into summer style with our exquisitely crafted Handmade Raffia Clutch Bag. This versatile beauty is a delightful blend of crochet and knitting, woven from high-quality raffia to create a stunning and durable accessory for your sunny adventures. The intricate design of this straw pouch bag exudes charm and uniqueness, making it a perfect choice for those seeking a one-of-a-kind piece.</p>
@@ -119,8 +119,11 @@
         function updateModalImage() {
             const modal = document.getElementById(currentModalId);
             const imgTag = modal.querySelector('#modal-image');
+            const infoTag = modal.querySelector('.info');
             imgTag.src = currentImages[currentImageIndex];
+            infoTag.textContent = `${currentImageIndex + 1}/${currentImages.length}`;
         }
+
 
         function nextImage() {
             currentImageIndex = (currentImageIndex + 1) % currentImages.length;
