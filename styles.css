@@ -343,7 +343,7 @@
             height: 35px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .Header-inner {
                 padding: 0 20px;
                 height: 200px;
@@ -364,11 +364,14 @@
                 width: 45%;
             }
 
-            .filter-buttons {
-                flex-direction: column;
+             .filter-buttons {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 16px;
                 padding: 0 20px;
-                align-items: stretch;
+                justify-items: center;
             }
+
 
             .About {
                 padding: 30px 20px;
@@ -383,16 +386,19 @@
             }
 
             .modal-content {
+                position: relative;
                 padding: 15px;
                 max-width: 95%;
             }
 
-            .contacts {
-                flex-direction: column;
-                padding: 2em 20px;
-                gap: 40px;
-                align-items: center;
-                text-align: center;
+            .close-btn {
+                position: absolute;
+                right: 15px;
+                top: 10px;
+                font-size: 34px;
+                cursor: pointer;
+                z-index: 9999;
+                font-weight: bold;
             }
 
             .contacts {
@@ -400,6 +406,7 @@
                 align-items: center;
                 text-align: center;
                 padding: 30px 20px;
+                gap: 40px;
             }
 
             .logo-img {
@@ -411,17 +418,16 @@
                 font-size: 16px;
             }
 
-            .filter-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 26px;
-                margin: 40px 0;
-            }
-
             .filter-buttons button {
                 width: 100%;
                 max-width: 400px;
                 text-align: center;
+            }
+        }
+
+        @media (min-width: 767px) and (max-width: 1024px) {
+            .bag-card {
+                width: 20%;
             }
         }
 
