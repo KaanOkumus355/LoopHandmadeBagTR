@@ -332,6 +332,11 @@
             font-size: 18px;
         }
 
+        .contacts a {
+            text-decoration: none;
+            color: black;
+        }
+
         .contact-icon {
             width: 30px;
             height: 30px;
