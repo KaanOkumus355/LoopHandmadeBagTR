@@ -13,6 +13,15 @@
             document.querySelector(`[onclick="filterBags('${category}')"]`).classList.add('active');
         }
 
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".bag-card").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
         let currentImageIndex = 0;
         let currentImages = [];
         let currentModalId = '';
