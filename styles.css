@@ -170,17 +170,13 @@
         }
 
         .filter-buttons input {
-            height: %100px;
-            width: 250px;
-            border-radius: 25px;
-            padding: 13px 20px 13px;
+            width: 100%;
+            max-width: 250px;
+            border-radius: 25px;            
+            padding: 13px 20px;
+            box-sizing: border-box;
         }
 
-        @media (min-width: 768px) {
-            .filter-buttons button{
-                padding: 13px 50px 13px;
-            }
-        }
 
         .product-modal {
             display: none;
@@ -386,6 +382,14 @@
                 justify-items: center;
             }
 
+            .filter-buttons input {
+                padding: 13px 20px 13px;
+                width: 100%;
+                max-width: 300px;
+                margin-left: 0;
+                box-sizing: border-box;
+            }
+
 
             .About {
                 padding: 30px 20px;
@@ -440,6 +444,17 @@
         }
 
         @media (min-width: 767px) and (max-width: 1024px) {
+            .filter-buttons button {
+                padding: 8px 16px;
+                font-size: 14px;
+                font-weight: 400;
+            }
+
+            .filter-buttons input {
+                margin: 0 auto;
+                width: 200px;
+            }
+
             .bag-card {
                 width: 20%;
             }
