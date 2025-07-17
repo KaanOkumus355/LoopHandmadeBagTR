@@ -990,7 +990,7 @@ const products = [
                 id: "modal48",
                 order: 48,
                 active: true,
-                name: "Macrame Bag 48",
+                name: "Macrame Bag 13",
                 title: "Handmade Crochet Macrame Clutch Bag, Boho Purse, Woven Evening Bag, Wedding Guest Accessory, Gift For Her, Summer Style",
                 category: "macrame",
                 coverImage: "photos/macrame/mab13.webp",
@@ -1005,5 +1005,346 @@ const products = [
                 description: "Elevate your accessory game with this handmade crochet macrame clutch bag—an elegant fusion of boho charm and artisanal craftsmanship. This woven evening bag features intricate macrame detailing , making it the perfect statement piece for weddings, beach days, and summer soirées.",
                 price: "45",
                 link: "https://www.etsy.com/listing/4295861730"
+            },
+
+            {
+                id: "modal49",
+                order: 49,
+                active: true,
+                name: "Macrame Bag 14",
+                title: "Handmade Clutch Bag , Crochet Shimmering Purse , Knitted Handbag , Unique Gift For Women, Crochet Accessory, Luxury Evening Bag,Gift For Her",
+                category: "macrame",
+                coverImage: "photos/macrame/mab14.webp",
+                hoverImage: "photos/macrame/mab14-2.webp",
+                images: [
+                    "photos/macrame/mab14.webp",
+                    "photos/macrame/mab14-2.webp",
+                    "photos/macrame/mab14-3.webp",
+                    "photos/macrame/mab14-4.webp",
+                    "photos/macrame/mab14-5.webp"
+                ],
+                description: "Introducing our handmade crochet clutch bag, the perfect accessory for every occasion! This eco-friendly woven purse is crafted with love and attention to detail, making it a unique and stylish choice for women who appreciate handmade craftsmanship.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1812679416"
+            },
+
+            {
+                id: "modal50",
+                order: 50,
+                active: true,
+                name: "Macrame Bag 15",
+                title: "Handmade Clutch Bag ,Crochet Bag ,Colorful Summer Clutch , Knitted Bag ,Straw Pouch Bag, Unique Gift For Her, Crochet Accessory For Women",
+                category: "macrame",
+                coverImage: "photos/macrame/mab15.webp",
+                hoverImage: "photos/macrame/mab15-2.webp",
+                images: [
+                    "photos/macrame/mab15.webp",
+                    "photos/macrame/mab15-2.webp",
+                    "photos/macrame/mab15-3.webp",
+                    "photos/macrame/mab15-4.webp",
+                    "photos/macrame/mab15-5.webp"
+                ],
+                description: "This handmade clutch is a perfect addition to any summer wardrobe. It is handcrafted using high-quality macrame yarn, which is known for its durability and lightweight texture. The natural and rustic feel of soft yarn adds an element of bohemian chic to your outfit. The interior of the clutch is lined with a smooth and durable fabric, and features a small pocket that is perfect for storing your phone, keys, or other small items.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1665390036"
+            },
+
+            {
+                id: "modal51",
+                order: 51,
+                active: true,
+                name: "Macrame Bag 16",
+                title: "Handmade Royal Blue Crochet Clutch Bag | Elegant Handcrafted Evening Purse | Unique Gift for Her | Stylish Women's Accessory",
+                category: "macrame",
+                coverImage: "photos/macrame/mab16.webp",
+                hoverImage: "photos/macrame/mab16-2.webp",
+                images: [
+                    "photos/macrame/mab16.webp",
+                    "photos/macrame/mab16-2.webp",
+                    "photos/macrame/mab16-3.webp",
+                    "photos/macrame/mab16-4.webp",
+                    "photos/macrame/mab16-5.webp"
+                ],
+                description: "Add a touch of elegance to your ensemble with this stunning handmade royal blue crochet clutch bag. This piece is perfect for complementing your look at weddings, parties, or any special event. Skillfully crafted with a rich royal blue yarn, this clutch balances fashion and practicality, ensuring you can carry your essentials in style.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1676960801"
+            },
+
+            {
+                id: "modal52",
+                order: 52,
+                active: true,
+                name: "Macrame Bag 17",
+                title: "Handmade Crochet Beige Clutch For Women, Evening Bag For Weddings, Parties, And Special Occasions, Elegant Accessory With Vintage Style",
+                category: "macrame",
+                coverImage: "photos/macrame/mab17.webp",
+                hoverImage: "photos/macrame/mab17-2.webp",
+                images: [
+                    "photos/macrame/mab17.webp",
+                    "photos/macrame/mab17-2.webp",
+                    "photos/macrame/mab17-3.webp",
+                    "photos/macrame/mab17-4.webp",
+                    "photos/macrame/mab17-5.webp"
+                ],
+                description: "Elevate your style with this handmade beige crochet clutch, a perfect blend of elegance and practicality. Crafted with precision, this clutch showcases a beautiful crochet pattern that adds a unique, vintage touch to any outfit. Its neutral beige color makes it versatile, effortlessly complementing formal and casual looks alike. Whether you're attending a wedding, party, or a special evening event, this clutch is designed to be your go-to accessory. It's the perfect size to hold your essentials - phone, keys, and makeup.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1697105404"
+            },
+
+            {
+                id: "modal53",
+                order: 53,
+                active: true,
+                name: "Macrame Bag 18",
+                title: "Handmade Yellow Crochet Clutch Bag , Boho Summer Accessory, Stylish Handmade Purse, Perfect Gift For Women",
+                category: "macrame",
+                coverImage: "photos/macrame/mab18.jpg",
+                hoverImage: "photos/macrame/mab18-2.avif",
+                images: [
+                    "photos/macrame/mab18.jpg",
+                    "photos/macrame/mab18-2.avif",
+                    "photos/macrame/mab18-3.jpg",
+                    "photos/macrame/mab18-4.avif",
+                    "photos/macrame/mab18-5.jpg"
+                ],
+                description: "Brighten up your summer style with this handmade yellow crochet clutch bag! 💛 Perfect for women who love unique and trendy accessories, this boho-chic purse adds a pop of color to your outfits. Whether you're heading to the beach, traveling, or enjoying a casual day out, this lightweight and eco-friendly bag will hold all your essentials. 🌿 Handcrafted with love, it's a perfect gift for her, whether for birthdays, holidays, or just because! Add a touch of summer sunshine to your look with this versatile and stylish crochet clutch. ✨",
+                price: "45",
+                link: "https://www.etsy.com/listing/1808023195"
+            },
+
+            {
+                id: "modal54",
+                order: 54,
+                active: true,
+                name: "Macrame Bag 19",
+                title: "Handmade Black Crochet Clutch Bag, Macrame Purse , Boho Evening Clutch, Gift For Her, Elegant Handmade Bag, Festival Accessory",
+                category: "macrame",
+                coverImage: "photos/macrame/mab19.webp",
+                hoverImage: "photos/macrame/mab19-2.webp",
+                images: [
+                    "photos/macrame/mab19.webp",
+                    "photos/macrame/mab19-2.webp",
+                    "photos/macrame/mab19-3.webp",
+                    "photos/macrame/mab19-4.webp",
+                    "photos/macrame/mab19-5.webp"
+                ],
+                description: "This handmade black crochet clutch bag features a stunning macrame design that blends boho charm with timeless elegance. Crafted with care, this clutch is a stylish statement piece for evenings out, festivals, or everyday chic looks. Looking for something special? This unique crochet clutch makes a thoughtful gift for her-ideal for birthdays, holidays, anniversaries, or spontaneous surprises. Beautifully packaged and made to impress.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1680627025"
+            },
+
+            {
+                id: "modal55",
+                order: 55,
+                active: true,
+                name: "Macrame Bag 20",
+                title: "Handmade Crochet Clutch Bag - Red and Gray Woven Purse - Unique Boho Handbag - Gift for Her - Small Knit Bag - Trendy Evening Purse",
+                category: "macrame",
+                coverImage: "photos/macrame/mab20.webp",
+                hoverImage: "photos/macrame/mab20-2.webp",
+                images: [
+                    "photos/macrame/mab20.webp",
+                    "photos/macrame/mab20-2.webp",
+                    "photos/macrame/mab20-3.webp",
+                    "photos/macrame/mab20-4.webp",
+                    "photos/macrame/mab20-5.webp"
+                ],
+                description: "This handmade crochet clutch bag is the perfect blend of style and craftsmanship! Featuring a stunning red and gray woven design, this boho-inspired handbag is great for any occasion. Whether you're heading out for a night on the town or looking for a stylish way to carry your essentials, this trendy evening purse is a must-have!",
+                price: "45",
+                link: "https://www.etsy.com/listing/1679741248"
+            },
+
+            {
+                id: "modal56",
+                order: 56,
+                active: true,
+                name: "Waxed Yarn Bag 1",
+                title: "Handwoven Brown Crochet Clutch , Stylish Waxed Yarn Bag , Luxury Evening Bag , Perfect Gift for Her",
+                category: "waxed",
+                coverImage: "photos/otherbags/wb1.webp",
+                hoverImage: "photos/otherbags/wb1-2.webp",
+                images: [
+                    "photos/otherbags/wb1.webp",
+                    "photos/otherbags/wb1-2.webp",
+                    "photos/otherbags/wb1-3.webp",
+                    "photos/otherbags/wb1-4.webp",
+                    "photos/otherbags/wb1-5.webp"
+                ],
+                description: "Introducing our Handwoven Brown Crochet Clutch, a luxurious evening bag that exudes elegance and style. This exquisite bag is meticulously crafted using high-quality waxed yarn, giving it a unique and sophisticated look. Perfect for a night out or special occasion, this clutch is a must-have accessory for any fashion-forward individual. Treat yourself or surprise a loved one with this stunning piece, making it the perfect gift for her. Elevate your outfit with this handcrafted beauty and make a statement wherever you go.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1680669318"
+            },
+
+            {
+                id: "modal57",
+                order: 57,
+                active: true,
+                name: "Waxed Yarn Bag 2",
+                title: "Handmade Black Crochet Clutch Bag , Woven Evening Purse, Party Bag, Wedding bag for guests, Gift For Her",
+                category: "waxed",
+                coverImage: "photos/otherbags/wb2.webp",
+                hoverImage: "photos/otherbags/wb2-2.webp",
+                images: [
+                    "photos/otherbags/wb2.webp",
+                    "photos/otherbags/wb2-2.webp",
+                    "photos/otherbags/wb2-3.webp",
+                    "photos/otherbags/wb2-4.webp",
+                    "photos/otherbags/wb2-5.webp"
+                ],
+                description: "Introducing our elegant black crochet clutch bag, the perfect accessory for any special evening! This luxury evening bag combines style and functionality with its intricate woven design. Crafted with skilled hands and attention to detail, this stunning clutch is truly a work of art. The compact size is perfect for carrying your essentials, making it a must-have for any night out. Whether you are attending a glamorous event or simply adding a touch of sophistication to your outfit, this black crochet clutch bag is sure to impress.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1663975786"
+            },
+
+            {
+                id: "modal58",
+                order: 58,
+                active: true,
+                name: "Waxed Yarn Bag 3",
+                title: "Handwoven Brown Crochet Clutch - Waxed Yarn Luxury Purse - Elegant Evening Bag - Handmade Gift for Her - Boho Chic Accessories",
+                category: "waxed",
+                coverImage: "photos/otherbags/wb3.webp",
+                hoverImage: "photos/otherbags/wb3-2.webp",
+                images: [
+                    "photos/otherbags/wb3.webp",
+                    "photos/otherbags/wb3-2.webp",
+                    "photos/otherbags/wb3-3.webp",
+                    "photos/otherbags/wb3-4.webp",
+                    "photos/otherbags/wb3-5.webp"
+                ],
+                description: "Discover the elegance of this handwoven brown crochet clutch, crafted with premium waxed yarn for durability and style. Perfect as an evening bag or a chic everyday accessory, this clutch combines functionality with timeless design.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1681854769"
+            },
+
+            {
+                id: "modal59",
+                order: 59,
+                active: true,
+                name: "Waxed Bag 4",
+                title: "Handmade Black & White Striped Crochet Clutch for Women, Boho Style Bag for Casual Outfits, Summer Accessories, Unique Gift for Her",
+                category: "waxed",
+                coverImage: "photos/otherbags/wb4.webp",
+                hoverImage: "photos/otherbags/wb4-2.webp",
+                images: [
+                    "photos/otherbags/wb4.webp",
+                    "photos/otherbags/wb4-2.webp",
+                    "photos/otherbags/wb4-3.webp",
+                    "photos/otherbags/wb4-4.webp",
+                    "photos/otherbags/wb4-5.webp"
+                ],
+                description: "🖤 Looking for a stylish, handmade accessory to elevate your casual outfits? This black and white striped crochet clutch is perfect for you! Its unique boho style adds a touch of personality and charm to any summer look. Ideal for day-to-night transitions, this handmade piece is designed for women who appreciate both fashion and functionality. ",
+                price: "45",
+                link: "https://www.etsy.com/listing/1694860119"
+            },
+
+            {
+                id: "modal60",
+                order: 60,
+                active: true,
+                name: "Waxed Bag 5",
+                title: "Handmade Woven Clutch Bag - Eco-Friendly Boho Summer Purse, Natural Yarn Beach Clutch, Perfect Gift for Women",
+                category: "waxed",
+                coverImage: "photos/otherbags/wb5.webp",
+                hoverImage: "photos/otherbags/wb5-2.webp",
+                images: [
+                    "photos/otherbags/wb5.webp",
+                    "photos/otherbags/wb5-2.webp",
+                    "photos/otherbags/wb5-3.webp",
+                    "photos/otherbags/wb5-4.webp",
+                    "photos/otherbags/wb5-5.webp"
+                ],
+                description: "Elevate your summer style with this beautiful handmade woven clutch bag. Crafted with eco-friendly natural waxed yarn, this clutch offers a perfect blend of boho charm and practical elegance. Its versatile design makes it an ideal accessory for beach outings, casual summer events, or an evening out. Lightweight and spacious, it can hold all your essentials like your phone, wallet, and keys, making it both stylish and functional.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1819800215"
+            },
+
+            {
+                id: "modal61",
+                order: 61,
+                active: true,
+                name: "Winter Bag 1",
+                title: "Handmade Chunky Knit Clutch with Gold Chain Strap, Soft Knit Purse for Women, Perfect for Winter Fashion and Holiday Looks, Cozy Accessory",
+                category: "winter",
+                coverImage: "photos/otherbags/wib1.webp",
+                hoverImage: "photos/otherbags/wib1-2.webp",
+                images: [
+                    "photos/otherbags/wib1.webp",
+                    "photos/otherbags/wib1-2.webp",
+                    "photos/otherbags/wib1-3.webp",
+                    "photos/otherbags/wib1-4.webp",
+                    "photos/otherbags/wib1-5.webp"
+                ],
+                description: "Step into winter fashion with this luxurious handmade green chunky knit clutch, featuring a stylish gold chain strap! This soft knit purse is the ultimate cozy accessory for your winter outfits and holiday looks. Designed with both functionality and style in mind, it comfortably holds your essentials while adding a chic touch to any ensemble, whether casual or formal. Perfect as a thoughtful gift or to treat yourself this season.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1810343901"
+            },
+
+            {
+                id: "modal62",
+                order: 62,
+                active: true,
+                name: "Granny Bag 1",
+                title: "Handmade Crochet Granny Square Clutch Bag,Black and Beige Boho Purse, Stylish Crochet Bag ,Gift for Her, Vintage Accessory",
+                category: "granny",
+                coverImage: "photos/otherbags/gb1.webp",
+                hoverImage: "photos/otherbags/gb1-2.webp",
+                images: [
+                    "photos/otherbags/gb1.webp",
+                    "photos/otherbags/gb1-2.webp",
+                    "photos/otherbags/gb1-3.webp",
+                    "photos/otherbags/gb1-4.webp",
+                    "photos/otherbags/gb1-5.webp"
+                ],
+                description: "Elevate your style with this stunning handmade crochet granny square clutch bag. Featuring a timeless black and beige color combination, this boho-inspired purse blends vintage charm with modern sophistication. Crafted with love and precision, this bag is the perfect accessory for casual outings, evenings, or special occasions.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1843636406"
+            },
+
+            {
+                id: "modal63",
+                order: 63,
+                active: true,
+                name: "Granny Bag 2",
+                title: "Colorful Crochet Granny Square Bag, Handmade Poppins Clutch, Boho Style Purse, Unique Gift for Women, Festival Bag, Retro Crochet Handbag",
+                category: "granny",
+                coverImage: "photos/otherbags/gb2.webp",
+                hoverImage: "photos/otherbags/gb2-2.webp",
+                images: [
+                    "photos/otherbags/gb2.webp",
+                    "photos/otherbags/gb2-2.webp",
+                    "photos/otherbags/gb2-3.webp",
+                    "photos/otherbags/gb2-4.webp",
+                    "photos/otherbags/gb2-5.webp"
+                ],
+                description: "Add a pop of retro charm to your wardrobe with this colorful Crochet Granny Square Poppins Bag. Carefully handcrafted with vibrant granny squares, this unique boho-style clutch combines vintage aesthetics with modern functionality. Ideal for casual outings, festivals, or as a thoughtful gift, this one-of-a-kind bag is perfect for women who love handmade, sustainable fashion.",
+                price: "45",
+                link: "https://www.etsy.com/listing/1856741147"
+            },
+
+            {
+                id: "modal64",
+                order: 64,
+                active: true,
+                name: "Craft and Supplies",
+                title: "Metallic Raffia Yarn , Shiny Craft Supplies for Crochet Projects , Shimmering Paper Rope, Perfect Gift for Crafters",
+                category: "craft",
+                coverImage: "photos/otherbags/c1.webp",
+                hoverImage: "photos/otherbags/c2.webp",
+                images: [
+                    "photos/otherbags/c1.webp",
+                    "photos/otherbags/c2.webp",
+                    "photos/otherbags/c3.webp",
+                    "photos/otherbags/c4.webp",
+                    "photos/otherbags/c5.webp",
+                    "photos/otherbags/c6.webp",
+                    "photos/otherbags/c7.webp",
+                    "photos/otherbags/c8.webp",
+                    "photos/otherbags/c9.webp",
+                    "photos/otherbags/c10.webp"
+                ],
+                description: "Add a touch of elegance to your crochet projects with this Metallic Raffia Yarn. This shiny craft supply will bring a shimmering effect to your creations, whether you're making bags, hats, or home decor items. Made from high-quality paper rope, this yarn is a perfect gift for crafters who love adding a bit of sparkle to their handmade goodies. Upgrade your crafting game with this luxurious and versatile material!",
+                price: "45",
+                link: "https://www.etsy.com/listing/1692796867"
             }
         ]
