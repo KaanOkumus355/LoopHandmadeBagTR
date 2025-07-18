@@ -74,39 +74,45 @@
         const gallery = document.getElementById('bagGallery')
         const modals = document.getElementById('modalsContainer')
         
-        products.sort((a, b) => a.order - b.order);
+        fetch('products.json')
+            .then(response => response.json())
+            .then(products =>{
+                products.sort((a, b) => a.order - b.order);
 
-        products.forEach(product => {
-            if(!product.active) return;
+                products.forEach(product => {
+                    if(!product.active) return;
 
-            const cardHTML = `
-                <div class="bag-card" data-category="${product.category}" onclick="openModal('${product.id}')">
-                    <div class="image-hover-wrapper">
-                        <img src="${product.coverImage}" alt="${product.name}" class="base-image">
-                        <img src="${product.hoverImage}" alt="${product.name}" class="hover-image">
-                    </div>
-                    <p>${product.name}</p>
-                </div>
-            `;
-            gallery.innerHTML += cardHTML;
-
-            const imagesArray = JSON.stringify(product.images).replace(/"/g, '&quot;');
-            const ModalHTML = `
-                    <div class="product-modal" id="${product.id}" data-images="${imagesArray}">
-                        <div class="modal-content">
-                            <span class="close-btn" onclick="closeModal('${product.id}')">&times;</span>
-                            <div class="image-container">
-                                <button class="prev" id="prev" onclick="prevImage()">&#8592;</button>
-                                <img src="${product.images[0]}" alt="${product.name}" id="modal-image">
-                                <button class="next" id="next" onclick="nextImage()">&#8594;</button>
-                                <p class="info">1/${product.images.length}</p>
+                    const cardHTML = `
+                        <div class="bag-card" data-category="${product.category}" onclick="openModal('${product.id}')">
+                            <div class="image-hover-wrapper">
+                                <img src="${product.coverImage}" alt="${product.name}" class="base-image">
+                                <img src="${product.hoverImage}" alt="${product.name}" class="hover-image">
                             </div>
-                            <p><strong>${product.title}</strong></p>
-                            <p>Description: ${product.description}</p>
-                            <p>Price: $${product.price}</p>
-                            <a class="buy-button" target="_blank" href="${product.link}">Purchase</a>
+                            <p>${product.name}</p>
                         </div>
-                    </div>
-                `;
-                modals.innerHTML += ModalHTML;
-        });
+                    `;
+                    gallery.innerHTML += cardHTML;
+
+                    const imagesArray = JSON.stringify(product.images).replace(/"/g, '&quot;');
+                    const ModalHTML = `
+                            <div class="product-modal" id="${product.id}" data-images="${imagesArray}">
+                                <div class="modal-content">
+                                    <span class="close-btn" onclick="closeModal('${product.id}')">&times;</span>
+                                    <div class="image-container">
+                                        <button class="prev" id="prev" onclick="prevImage()">&#8592;</button>
+                                        <img src="${product.images[0]}" alt="${product.name}" id="modal-image">
+                                        <button class="next" id="next" onclick="nextImage()">&#8594;</button>
+                                        <p class="info">1/${product.images.length}</p>
+                                    </div>
+                                    <p><strong>${product.title}</strong></p>
+                                    <p>Description: ${product.description}</p>
+                                    <p>Price: $${product.price}</p>
+                                    <a class="buy-button" target="_blank" href="${product.link}">Purchase</a>
+                                </div>
+                            </div>
+                        `;
+                        modals.innerHTML += ModalHTML;
+                });
+            })
+            .catch(error => console.error('Error loading products:', error));
+        

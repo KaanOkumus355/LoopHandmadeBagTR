@@ -89,11 +89,6 @@
             display: none;
         }
 
-        .filter-buttons {
-            padding: 0 200px;
-            margin: 30px 0;
-        }
-
         .image-hover-wrapper {
             position: relative;
             width: 100%;
@@ -132,6 +127,8 @@
         }
 
         .filter-buttons {
+            padding: 0 200px;
+            margin: 30px 0;
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
@@ -141,7 +138,7 @@
             font-size: 16px;
             font-weight: 200;
             letter-spacing: 1px;
-            padding: 13px 20px 13px;
+            padding: 13px 32px 13px;
             outline: 0;
             border: 1px solid black;
             cursor: pointer;
