@@ -14,25 +14,43 @@ app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }
+  cookie: { secure: process.env.NODE_ENV === 'production',
+  httpOnly: true,
+  sameSite: 'strict' }
 }));
 
-function requireAuth(req, res, next) {
-  if (req.session.authenticated) {
+function isAuthenticated(req, res, next) {
+  if (req.session && req.session.authenticated && req.session.user === process.env.ADMIN_USER) {
     return next();
   }
   res.redirect('/login.html');
 }
 
-app.use('/admin.html', requireAuth);
-app.use('/admin.js', requireAuth);
-app.use('/api', requireAuth);
+app.get('/login.html', (req, res, next) => {
+  if (req.session && req.session.authenticated) {
+    return res.redirect('/admin.html');
+  }
+  next();
+});
+
+app.get('/admin.html', isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
+app.get('/admin.js', isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.js'));
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/api', isAuthenticated);
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-  
+
   if (username === process.env.ADMIN_USER && password === process.env.ADMIN_PASS) {
     req.session.authenticated = true;
+    req.session.user = username;
     return res.redirect('/admin.html');
   } else {
     return res.status(401).send('Invalid credentials');
@@ -44,7 +62,6 @@ app.get('/logout', (req, res) => {
     res.redirect('/login.html');
   });
 });
-
 
 const PHOTO_DIR = path.join(__dirname, 'public', 'photos');
 if (!fs.existsSync(PHOTO_DIR)) {
@@ -61,10 +78,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const PRODUCTS_FILE = path.join(__dirname, 'public', 'products.json');
-
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
 
 function saveProductsToFile(products, res, successMessage) {
   fs.writeFile(PRODUCTS_FILE, JSON.stringify(products, null, 2), (err) => {
@@ -140,8 +153,11 @@ app.put('/api/products/:id', (req, res) => {
     if (index === -1) {
       return res.status(404).json({ error: '❌ Product not found' });
     }
-
-    products[index] = updatedProduct;
+    
+    products[index] = {
+      ...products[index],
+      ...updatedProduct
+    };
 
     saveProductsToFile(products, res, '✅ Product updated');
   });

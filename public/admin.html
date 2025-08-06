@@ -28,6 +28,11 @@
       padding: 0.5rem;
       margin-bottom: 0.5rem;
     }
+
+    input[type="checkbox"] {
+      width: auto;
+    }
+
     button {
       padding: 0.5rem 1rem;
       cursor: pointer;
@@ -50,6 +55,14 @@
       margin-right: 0.5rem;
     }
 
+    .active-button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
   </style>
 </head>
 <body>
@@ -63,17 +76,22 @@
     <input type="text" id="category" placeholder="Category (raffia, macrame, etc)" required />
 
     <label>Cover Image:</label>
-    <input type="file" id="coverImage" accept="image/*" required />
+    <input type="file" id="coverImage" accept="image/*"/>
 
     <label>Hover Image:</label>
-    <input type="file" id="hoverImage" accept="image/*" required />
+    <input type="file" id="hoverImage" accept="image/*"/>
 
     <label>Gallery Images:</label>
-    <input type="file" id="images" accept="image/*" multiple required />
+    <input type="file" id="images" accept="image/*" multiple/>
 
     <textarea id="description" placeholder="Description" required></textarea>
+    <input type="text" id="order" name="order" placeholder="Order" required />
     <input type="text" id="price" placeholder="Price" required />
     <input type="text" id="link" placeholder="Etsy Link" required />
+    <div class="active-button">
+      <input type="checkbox" id="active" name="active" value="Active">
+      <label for="active">Active</label>
+    </div>
     <button class="success" type="submit">Add Product</button>
   </form>
 
@@ -85,6 +103,7 @@
         <th>Name</th>
         <th>Category</th>
         <th>Price</th>
+        <th>Active</th>
         <th>Actions</th>
       </tr>
     </thead>

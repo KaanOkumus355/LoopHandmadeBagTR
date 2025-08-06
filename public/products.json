@@ -6,17 +6,17 @@
     "name": "Raffia Bag 1",
     "title": "Handmade Raffia Clutch Bag , Crochet Bag, Summer Clutch , Knitted Raffia Bag , Straw Pouch Bag, Unique Gift For Her",
     "category": "raffia",
-    "coverImage": "photos/raffia/raffia1.jpg",
+    "coverImage": "/photos/1754503260246-raffia1.jpg",
     "hoverImage": "photos/raffia/raffiabag1hover.jpg",
     "images": [
-      "photos/raffia/raffia1.jpg",
-      "photos/raffia/raffiabag1hover.jpg",
-      "photos/raffia/raffiabag1-2.webp",
-      "photos/raffia/raffiabag1-3.webp",
-      "photos/raffia/raffiabag1-4.webp"
+      "/photos/1754486277270-raffia1.jpg",
+      "/photos/1754486277272-raffiabag1-2.webp",
+      "/photos/1754486277274-raffiabag1-3.webp",
+      "/photos/1754486277275-raffiabag1-4.webp",
+      "/photos/1754486277276-raffiabag1hover.jpg"
     ],
     "description": "Step into summer style with our exquisitely crafted Handmade Raffia Clutch Bag. This versatile beauty is a delightful blend of crochet and knitting, woven from high-quality raffia to create a stunning and durable accessory for your sunny adventures. The intricate design of this straw pouch bag exudes charm and uniqueness, making it a perfect choice for those seeking a one-of-a-kind piece.",
-    "price": "45",
+    "price": "1700$",
     "link": "https://www.etsy.com/listing/1684439505"
   },
   {
@@ -26,14 +26,14 @@
     "name": "Raffia Bag 2",
     "title": "Handmade Raffia Clutch Bag , Crochet Bag , Colorful Summer Clutch , Knitted Raffia Bag , Straw Pouch Bag, Unique Gift For Her",
     "category": "raffia",
-    "coverImage": "photos/raffia/raffia2.jpg",
+    "coverImage": "/photos/1754486596636-raffia2.jpg",
     "hoverImage": "photos/raffia/raffiabag2-hover.webp",
     "images": [
-      "photos/raffia/raffia2.jpg",
-      "photos/raffia/raffiabag2-hover.webp",
-      "photos/raffia/raffiabag2-2.jpg",
-      "photos/raffia/raffiabag2-3.jpg",
-      "photos/raffia/raffiabag2-4.jpg"
+      "/photos/1754486786637-raffiabag2-4.jpg",
+      "/photos/1754486786639-raffiabag2-3.jpg",
+      "/photos/1754486786640-raffiabag2-hover.webp",
+      "/photos/1754486786642-raffia2.jpg",
+      "/photos/1754486786651-raffiabag2-2.jpg"
     ],
     "description": "This raffia clutch is a perfect addition to any summer wardrobe. It is handcrafted using high-quality raffia straw, which is known for its durability and lightweight texture. The natural and rustic feel of raffia adds an element of bohemian chic to your outfit.",
     "price": "45",

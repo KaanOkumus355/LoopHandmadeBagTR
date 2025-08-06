@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
           row.innerHTML = `
             <td>${product.name}</td>
             <td>${product.category}</td>
-            <td>$${product.price}</td>
+            <td>${product.price}</td>
+            <td>${product.active ? '✅' : '❌'}</td>
             <td>
               <button class="edit" data-id="${product.id}">Edit</button>
               <button class="danger" data-id="${product.id}">Delete</button>
@@ -58,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('images', file);
     }
 
-    // Step 1: Upload files
     let uploadPaths = {};
     if (formData.has('coverImage') || formData.has('hoverImage') || formData.has('images')) {
       try {
@@ -72,17 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Step 2: Construct product data
     const data = {
       id: form.dataset.editingId || crypto.randomUUID(),
-      order: form.dataset.editingOrder ? Number(form.dataset.editingOrder) : Date.now(),
-      active: true,
+      order: Number(document.getElementById('order').value) || Date.now(),
+      active: document.getElementById('active').checked,
       name: form.name.value,
       title: form.title.value,
       category: form.category.value,
-      coverImage: uploadPaths.coverImage || form.coverImage.value,
-      hoverImage: uploadPaths.hoverImage || form.hoverImage.value,
-      images: uploadPaths.images || form.images.value.split(',').map(img => img.trim()),
+      coverImage: uploadPaths.coverImage !== null && uploadPaths.coverImage !== undefined
+        ? uploadPaths.coverImage
+        : form.dataset.coverImage,
+      hoverImage: uploadPaths.hoverImage !== null && uploadPaths.hoverImage !== undefined
+        ? uploadPaths.hoverImage
+        : form.dataset.hoverImage,
+      images: uploadPaths.images && uploadPaths.images.length > 0
+        ? uploadPaths.images
+        : JSON.parse(form.dataset.images || '[]'),
       description: form.description.value,
       price: form.price.value,
       link: form.link.value
@@ -96,25 +101,46 @@ document.addEventListener('DOMContentLoaded', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
-      .then(() => {
-        form.reset();
-        form.querySelector('button[type="submit"]').textContent = 'Add Product';
-        delete form.dataset.editingId;
-        delete form.dataset.editingOrder;
-        loadProducts();
-      })
-      .catch(err => console.error(`Error ${method === 'POST' ? 'adding' : 'updating'} product:`, err));
+    .then(res => res.json())
+    .then(() => {
+      form.reset();
+      const previews = document.getElementById('editPreviews');
+      if (previews) previews.remove();
+      form.querySelector('button[type="submit"]').textContent = 'Add Product';
+      delete form.dataset.editingId;
+      delete form.dataset.editingOrder;
+      loadProducts();
+    });
   });
 
   function editProduct(product) {
+    const oldPreview = document.getElementById('editPreviews');
+    if (oldPreview) oldPreview.remove();
+
+    form.insertAdjacentHTML('beforebegin', `
+      <div id="editPreviews">
+        <p><strong>Current Cover Image:</strong><br><img src="${product.coverImage}" height="100"></p>
+        <p><strong>Current Hover Image:</strong><br><img src="${product.hoverImage}" height="100"></p>
+        <p><strong>Current Gallery Images:</strong><br>
+          ${product.images.map(img => `<img src="${img}" height="80" style="margin: 4px;">`).join('')}
+        </p>
+      </div>
+    `);
+    
     form.name.value = product.name;
     form.title.value = product.title;
     form.category.value = product.category;
-    form.coverImage.value = product.coverImage;
-    form.hoverImage.value = product.hoverImage;
-    form.images.value = product.images.join(', ');
     form.description.value = product.description;
+    form.price.value = product.price;
+    form.link.value = product.link;
+    
+    form.dataset.coverImage = product.coverImage;
+    form.dataset.hoverImage = product.hoverImage;
+    form.dataset.images = JSON.stringify(product.images);
+
+    form.description.value = product.description;
+    document.getElementById('order').value = product.order;
+    document.getElementById('active').checked = !!product.active;
     form.price.value = product.price;
     form.link.value = product.link;
 
