@@ -89,7 +89,7 @@
                                 <img src="${product.hoverImage}" alt="${product.name}" class="hover-image">
                             </div>
                             <p>${product.name}</p>
-                            <p class="product-price-show">${product.price}$</p>
+                            <p class="product-price-show">${product.price}</p>
                         </div>
                     `;
                     gallery.innerHTML += cardHTML;

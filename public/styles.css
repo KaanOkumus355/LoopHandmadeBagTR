@@ -70,8 +70,11 @@
 
         .bag-card p{
             margin-bottom: 0.1rem;
+            display: box;
             display: -webkit-box;
+            box-orient: vertical;
             -webkit-line-clamp: 2; 
+            line-clamp: 2; 
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis; 

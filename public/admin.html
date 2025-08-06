@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - LoopHandmadeBagTR</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .danger {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+    }
+    .success {
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+    }
+
+    .edit {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      margin-right: 0.5rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Admin Panel</h1>
+
+  <h2>Add New Product</h2>
+  <form id="addProductForm" enctype="multipart/form-data">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="text" id="title" placeholder="Title" required />
+    <input type="text" id="category" placeholder="Category (raffia, macrame, etc)" required />
+
+    <label>Cover Image:</label>
+    <input type="file" id="coverImage" accept="image/*" required />
+
+    <label>Hover Image:</label>
+    <input type="file" id="hoverImage" accept="image/*" required />
+
+    <label>Gallery Images:</label>
+    <input type="file" id="images" accept="image/*" multiple required />
+
+    <textarea id="description" placeholder="Description" required></textarea>
+    <input type="text" id="price" placeholder="Price" required />
+    <input type="text" id="link" placeholder="Etsy Link" required />
+    <button class="success" type="submit">Add Product</button>
+  </form>
+
+
+  <h2>Existing Products</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productTableBody">
+
+    </tbody>
+  </table>
+  <a href="/logout">Logout</a>
+
+  <script src="admin.js"></script>
+</body>
+
+</html>
