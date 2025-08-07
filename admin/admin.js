@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const productMap = {};
 
   function loadProducts() {
-    fetch('/api/products')
+    fetch('/api/admin/products')
       .then(res => res.json())
       .then(products => {
         productTableBody.innerHTML = '';

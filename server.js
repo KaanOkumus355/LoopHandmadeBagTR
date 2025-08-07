@@ -95,6 +95,15 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
+app.get('/api/admin/products', isAuthenticated, async (req, res) => {
+  try {
+    const products = await Product.find(); // no filter
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: '❌ Failed to fetch admin products' });
+  }
+});
+
 app.use('/api', isAuthenticated);
 
 const PHOTO_DIR = path.join(__dirname, 'public', 'photos');
