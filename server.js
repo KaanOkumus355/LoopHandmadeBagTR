@@ -1,11 +1,35 @@
 require('dotenv').config();
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const app = express();
-const PORT = 3000;
+const mongoose = require('mongoose');
 const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 const session = require('express-session');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('✅ Connected to MongoDB'))
+  .catch(err => console.error('❌ MongoDB connection error:', err));
+
+const productSchema = new mongoose.Schema({
+  id: String,
+  name: String,
+  order: Number,
+  category: String,
+  title: String,
+  description: String,
+  price: String,
+  link: String,
+  active: Boolean,
+  coverImage: String,
+  hoverImage: String,
+  images: [String]
+});
+
+const Product = mongoose.model('Product', productSchema);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,10 +38,14 @@ app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: process.env.NODE_ENV === 'production',
-  httpOnly: true,
-  sameSite: 'strict' }
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    httpOnly: true,
+    sameSite: 'strict'
+  }
 }));
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 function isAuthenticated(req, res, next) {
   if (req.session && req.session.authenticated && req.session.user === process.env.ADMIN_USER) {
@@ -28,30 +56,17 @@ function isAuthenticated(req, res, next) {
 
 app.get('/login.html', (req, res, next) => {
   if (req.session && req.session.authenticated) {
-    return res.redirect('/admin.html');
+    return res.redirect('/admin-panel');
   }
-  next();
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
-
-app.get('/admin.html', isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
-});
-
-app.get('/admin.js', isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'admin.js'));
-});
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/api', isAuthenticated);
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-
   if (username === process.env.ADMIN_USER && password === process.env.ADMIN_PASS) {
     req.session.authenticated = true;
     req.session.user = username;
-    return res.redirect('/admin.html');
+    return res.redirect('/admin-panel');
   } else {
     return res.status(401).send('Invalid credentials');
   }
@@ -63,11 +78,29 @@ app.get('/logout', (req, res) => {
   });
 });
 
+app.get('/admin-panel', isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin', 'mugeadminpanel1981.html'));
+});
+
+app.get('/admin.js', isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin', 'admin.js'));
+});
+
+app.get('/api/products', async (req, res) => {
+  try {
+    const products = await Product.find({ active: true });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: '❌ Failed to fetch products' });
+  }
+});
+
+app.use('/api', isAuthenticated);
+
 const PHOTO_DIR = path.join(__dirname, 'public', 'photos');
 if (!fs.existsSync(PHOTO_DIR)) {
   fs.mkdirSync(PHOTO_DIR, { recursive: true });
 }
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, PHOTO_DIR),
   filename: (req, file, cb) => {
@@ -77,48 +110,34 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-const PRODUCTS_FILE = path.join(__dirname, 'public', 'products.json');
-
-function saveProductsToFile(products, res, successMessage) {
-  fs.writeFile(PRODUCTS_FILE, JSON.stringify(products, null, 2), (err) => {
-    if (err) return res.status(500).json({ error: '❌ Failed to save products.json' });
-    res.status(200).json({ message: successMessage });
-  });
-}
-
-
-app.get('/api/products', (req, res) => {
-  fs.readFile(PRODUCTS_FILE, 'utf-8', (err, data) => {
-    if (err) return res.status(500).json({ error: '❌ Failed to read products.json' });
-    res.json(JSON.parse(data));
-  });
+app.post('/api/products', async (req, res) => {
+  try {
+    const newProduct = new Product(req.body);
+    await newProduct.save();
+    res.status(200).json({ message: '✅ Product added' });
+  } catch (err) {
+    res.status(500).json({ error: '❌ Failed to add product' });
+  }
 });
 
-
-app.post('/api/products', (req, res) => {
-  const newProduct = req.body;
-
-  fs.readFile(PRODUCTS_FILE, 'utf-8', (err, data) => {
-    if (err) return res.status(500).json({ error: '❌ Failed to read products.json' });
-
-    const products = JSON.parse(data);
-    products.push(newProduct);
-
-    saveProductsToFile(products, res, '✅ Product added');
-  });
+app.put('/api/products/:id', async (req, res) => {
+  try {
+    const result = await Product.findOneAndUpdate({ id: req.params.id }, req.body, { new: true });
+    if (!result) return res.status(404).json({ error: '❌ Product not found' });
+    res.status(200).json({ message: '✅ Product updated' });
+  } catch (err) {
+    res.status(500).json({ error: '❌ Failed to update product' });
+  }
 });
 
-app.delete('/api/products/:id', (req, res) => {
-  const productId = req.params.id;
-
-  fs.readFile(PRODUCTS_FILE, 'utf-8', (err, data) => {
-    if (err) return res.status(500).json({ error: '❌ Failed to read products.json' });
-
-    let products = JSON.parse(data);
-    products = products.filter(p => p.id !== productId);
-
-    saveProductsToFile(products, res, '✅ Product deleted');
-  });
+app.delete('/api/products/:id', async (req, res) => {
+  try {
+    const result = await Product.findOneAndDelete({ id: req.params.id });
+    if (!result) return res.status(404).json({ error: '❌ Product not found' });
+    res.status(200).json({ message: '✅ Product deleted' });
+  } catch (err) {
+    res.status(500).json({ error: '❌ Failed to delete product' });
+  }
 });
 
 app.post('/api/upload', upload.fields([
@@ -127,38 +146,14 @@ app.post('/api/upload', upload.fields([
   { name: 'images', maxCount: 10 }
 ]), (req, res) => {
   const files = req.files;
-
   const result = {
     coverImage: files.coverImage ? '/photos/' + files.coverImage[0].filename : null,
     hoverImage: files.hoverImage ? '/photos/' + files.hoverImage[0].filename : null,
     images: files.images ? files.images.map(file => '/photos/' + file.filename) : []
   };
-
   res.status(200).json(result);
 });
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
-
-app.put('/api/products/:id', (req, res) => {
-  const productId = req.params.id;
-  const updatedProduct = req.body;
-
-  fs.readFile(PRODUCTS_FILE, 'utf-8', (err, data) => {
-    if (err) return res.status(500).json({ error: '❌ Failed to read products.json' });
-
-    let products = JSON.parse(data);
-    const index = products.findIndex(p => p.id === productId);
-    if (index === -1) {
-      return res.status(404).json({ error: '❌ Product not found' });
-    }
-    
-    products[index] = {
-      ...products[index],
-      ...updatedProduct
-    };
-
-    saveProductsToFile(products, res, '✅ Product updated');
-  });
 });

@@ -74,7 +74,7 @@
         const gallery = document.getElementById('bagGallery')
         const modals = document.getElementById('modalsContainer')
         
-        fetch('products.json')
+        fetch('/api/products')
             .then(response => response.json())
             .then(products =>{
                 products.sort((a, b) => a.order - b.order);
