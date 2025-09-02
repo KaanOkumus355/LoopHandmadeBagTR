@@ -26,6 +26,12 @@
         let currentImages = [];
         let currentModalId = '';
 
+        function preloadImages(images) {
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
 
         function openModal(id) {
             const modal = document.getElementById(id);
@@ -34,6 +40,8 @@
             currentImageIndex = 0;
             currentImages = images;
             currentModalId = id;
+
+            preloadImages(images);
 
             updateModalImage();
             modal.classList.add('active');
@@ -85,8 +93,8 @@
                     const cardHTML = `
                         <div class="bag-card" data-category="${product.category}" onclick="openModal('${product.id}')">
                             <div class="image-hover-wrapper">
-                                <img src="${product.coverImage}" alt="${product.name}" class="base-image" loading"lazy">
-                                <img src="${product.hoverImage}" alt="${product.name}" class="hover-image" loading"lazy">
+                                <img src="${product.coverImage}" alt="${product.name}" class="base-image" loading="lazy">
+                                <img src="${product.hoverImage}" alt="${product.name}" class="hover-image" loading="lazy">
                             </div>
                             <p>${product.name}</p>
                             <p class="product-price-show">${product.price}</p>
