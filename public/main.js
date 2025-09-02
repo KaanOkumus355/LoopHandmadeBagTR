@@ -85,8 +85,8 @@
                     const cardHTML = `
                         <div class="bag-card" data-category="${product.category}" onclick="openModal('${product.id}')">
                             <div class="image-hover-wrapper">
-                                <img src="${product.coverImage}" alt="${product.name}" class="base-image">
-                                <img src="${product.hoverImage}" alt="${product.name}" class="hover-image">
+                                <img src="${product.coverImage}" alt="${product.name}" class="base-image" loading"lazy">
+                                <img src="${product.hoverImage}" alt="${product.name}" class="hover-image" loading"lazy">
                             </div>
                             <p>${product.name}</p>
                             <p class="product-price-show">${product.price}</p>
