@@ -102,9 +102,9 @@
                     `;
                     gallery.innerHTML += cardHTML;
 
-                    const imagesArray = JSON.stringify(product.images).replace(/"/g, '&quot;');
+                    const imagesArray = JSON.stringify(product.images);
                     const ModalHTML = `
-                            <div class="product-modal" id="${product.id}" data-images="${imagesArray}">
+                            <div class="product-modal" id="${product.id}" data-images='${imagesArray}'>
                                 <div class="modal-content">
                                     <span class="close-btn" onclick="closeModal('${product.id}')">&times;</span>
                                     <div class="image-container">
