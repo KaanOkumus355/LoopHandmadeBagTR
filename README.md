@@ -51,3 +51,25 @@ Although the business direction changed, the project evolved into a full-stack w
    ```bash
    git clone https://github.com/KaanOkumus355/LoopHandmadeBagTR.git
    cd LoopHandmadeBagTR
+
+2. **Install dependencies**
+   ```bash
+   npm install
+3. **Create a .env file**
+   ```bash
+   MONGO_URI=your_mongodb_connection_string
+   PORT=3000
+4. **Start the application**
+   ```bash
+   npm start
+
+---
+
+📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+👤 Author
+Kaan Okumuş
